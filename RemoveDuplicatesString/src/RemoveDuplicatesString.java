@@ -8,7 +8,13 @@ import java.util.Vector;
  */
 public class RemoveDuplicatesString {
 
-    
+    /**
+     * Checks the character in the Character Vector at the given index
+     * and if duplicates are present next to it, removes the character and its duplicates  
+     * @param vector Character Vector to test
+     * @param index index of the character to test and remove
+     * @return true if any character was removed else false
+     */
     private static boolean removeAdjacents(Vector<Character> vector, int index)
     {
         char val = vector.elementAt(index);
@@ -25,6 +31,11 @@ public class RemoveDuplicatesString {
         return result;
     }
     
+    /**
+     * Initializes a Character Vector containing the elements from a given string
+     * @param input The given string 
+     * @return Character Vector
+     */
     private static Vector<Character> initVector(String input)
     {
         char[] inputArray = input.toCharArray();
@@ -38,7 +49,12 @@ public class RemoveDuplicatesString {
         return output;
     }
     
-    private static String removeDuplicates(String input)
+    /**
+     * Process the string for adjacent duplicates and removes it from the string
+     * @param input The string to process
+     * @return A string with duplicates removed
+     */
+    private static String processString(String input)
     {
         Vector<Character> output = initVector(input);
         
@@ -52,6 +68,11 @@ public class RemoveDuplicatesString {
         return vectorToString( output );
     }
     
+    /**
+     * A string representation of the characters in the vector
+     * @param vector A vector of Characters
+     * @return A string with the characters in the vector concatenated
+     */
     private static String vectorToString (Vector<Character> vector)
     {
         StringBuffer result = new StringBuffer();
@@ -66,12 +87,12 @@ public class RemoveDuplicatesString {
     
     public static void main(String args[])
     {
-        System.out.println( "azxxzy" + " --> " + removeDuplicates( "azxxzy") ); // ay
+        System.out.println( "azxxzy" + " --> " + processString( "azxxzy") ); // ay
         
-        System.out.println( "geeksforgeeg" + " --> " + removeDuplicates( "geeksforgeeg") ); // gksfor
+        System.out.println( "geeksforgeeg" + " --> " + processString( "geeksforgeeg") ); // gksfor
         
-        System.out.println( "caaabbbaacdddd" + " --> " + removeDuplicates( "caaabbbaacdddd") ); // Empty String
+        System.out.println( "caaabbbaacdddd" + " --> " + processString( "caaabbbaacdddd") ); // Empty String
         
-        System.out.println( "acaaabbbacdddd" + " --> " + removeDuplicates( "acaaabbbacdddd") ); // acac
+        System.out.println( "acaaabbbacdddd" + " --> " + processString( "acaaabbbacdddd") ); // acac
     }
 }
